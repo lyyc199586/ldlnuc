@@ -90,8 +90,8 @@ y  = TestFunction(Y)             # Test function
 z  = Function(Y)                 # Phase field from previous iteration
 z_inc = Function(Y)
 d = u.geometric_dimension()
-B  = Constant((0.0, 0.0))  # Body force per unit volume
-Tf  = Expression(("t*0.0", "t*0"),degree=1,t=0)   # Traction force on the boundary
+B  = Constant((0.0, 0.0))  # Body force per unit volume # NOTE: do we need it?
+Tf  = Expression(("t*0.0", "t*0"),degree=1,t=0)   # Traction force on the boundary NOTE: do we need it?
 
 
 ##############################################################
