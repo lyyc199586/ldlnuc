@@ -1,14 +1,1 @@
-<?xml version="1.0"?>
-<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
-<Xdmf Version="3.0" xmlns:xi="https://www.w3.org/2001/XInclude">
-  <Domain>
-    <Grid Name="mesh" GridType="Uniform">
-      <Topology TopologyType="Quadrilateral" NumberOfElements="30000" NodesPerElement="4">
-        <DataItem Dimensions="30000 4" NumberType="Int" Format="HDF">surf_quad.h5:/Mesh/mesh/topology</DataItem>
-      </Topology>
-      <Geometry GeometryType="XY">
-        <DataItem Dimensions="30401 2" Format="HDF">surf_quad.h5:/Mesh/mesh/geometry</DataItem>
-      </Geometry>
-    </Grid>
-  </Domain>
-</Xdmf>
+<Xdmf Version="3.0"><Domain><Grid Name="Grid"><Geometry GeometryType="XYZ"><DataItem DataType="Float" Dimensions="30401 3" Format="HDF" Precision="8">surf_quad.h5:/data0</DataItem></Geometry><Topology TopologyType="Quadrilateral" NumberOfElements="30000" NodesPerElement="4"><DataItem DataType="Int" Dimensions="30000 4" Format="HDF" Precision="8">surf_quad.h5:/data1</DataItem></Topology><Attribute Name="gmsh:dim_tags" AttributeType="Vector" Center="Node"><DataItem DataType="Int" Dimensions="30401 2" Format="HDF" Precision="8">surf_quad.h5:/data2</DataItem></Attribute><Attribute Name="gmsh:physical" AttributeType="Scalar" Center="Cell"><DataItem DataType="Int" Dimensions="30000" Format="HDF" Precision="8">surf_quad.h5:/data3</DataItem></Attribute><Attribute Name="gmsh:geometrical" AttributeType="Scalar" Center="Cell"><DataItem DataType="Int" Dimensions="30000" Format="HDF" Precision="8">surf_quad.h5:/data4</DataItem></Attribute></Grid></Domain></Xdmf>

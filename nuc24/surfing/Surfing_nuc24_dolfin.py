@@ -355,8 +355,9 @@ Jac_z = derivative(R_z, z, dz)
 snes_solver_parameters = {
     "nonlinear_solver": "snes",
     "snes_solver": {
-        "linear_solver": "cg",  # lu or gmres or cg 'preconditioner: ilu, amg, jacobi'
-        "preconditioner": "amg",
+        # "linear_solver": "cg",  # lu or gmres or cg 'preconditioner: ilu, amg, jacobi'
+        "linear_solver": "lu",
+        "preconditioner": "ilu",
         # "maximum_iterations": 10,
         "maximum_iterations": 20,
         "report": True,
@@ -397,7 +398,10 @@ while t - stepsize < T:
 
     stag_iter = 1
     unorm_stag = 1
-    while stag_iter < 800 and unorm_stag > 1e-9:
+    znorm_stag = 1
+    rnorm_stag = 1
+    while stag_iter < 800 and rnorm_stag > 1e-9:
+    # while stag_iter < 800 and znorm_stag > 1e-7:
         ##############################################################
         # First PDE
         ##############################################################
@@ -447,6 +451,7 @@ while t - stepsize < T:
         if comm_rank == 0:
             with open("./out/Stag_stopping_crit_" + str(step) + ".txt", "a") as rfile:
                 rfile.write("%s %s\n" % (str(stag_iter), str(unorm_stag)))
+                # rfile.write("%s %s\n" % (str(stag_iter), str(znorm_stag)))
 
         assign(z_stag, z)
         assign(u_stag, u)
