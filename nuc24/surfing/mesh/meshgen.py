@@ -33,10 +33,10 @@ def surf_mesh(xlim: list[float], ylim: list[float], h: float, mesh_path: str):
     # gmsh.model.geo.mesh.setRecombine(2, ps)
 
     # physical groups for boundaries
-    # gmsh.model.addPhysicalGroup(1, [l4], name="left")
-    # gmsh.model.addPhysicalGroup(1, [l2], name="right")
-    # gmsh.model.addPhysicalGroup(1, [l3], name="top")
-    # gmsh.model.addPhysicalGroup(1, [l1], name="bottom")
+    gmsh.model.addPhysicalGroup(1, [l4], name="left")
+    gmsh.model.addPhysicalGroup(1, [l2], name="right")
+    gmsh.model.addPhysicalGroup(1, [l3], name="top")
+    gmsh.model.addPhysicalGroup(1, [l1], name="bottom")
     gmsh.model.addPhysicalGroup(2, [cl], name="surfing")
 
     # synchronize
